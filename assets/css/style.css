@@ -353,11 +353,15 @@ h1, h2, h3, h4 { line-height: 1.12; letter-spacing: -0.02em; font-weight: 700; }
 }
 .founder:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
 .avatar {
-  width: 84px; height: 84px; border-radius: 22px; flex: none; display: grid; place-items: center;
+  position: relative; overflow: hidden;
+  width: 96px; height: 96px; border-radius: 22px; flex: none; display: grid; place-items: center;
   font-size: 1.7rem; font-weight: 800; color: #fff; letter-spacing: -.02em; box-shadow: var(--shadow);
 }
 .avatar.cj { background: linear-gradient(135deg, #16b8a6, #0e9486); }
 .avatar.dl { background: linear-gradient(135deg, #5b6bff, #3b48d6); }
+/* Photo covers the initials when present; if the file is missing it removes
+   itself (see onerror in markup) and the gradient + initials show through. */
+.avatar img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .founder h3 { font-size: 1.35rem; }
 .founder .role { color: var(--teal-deep); font-weight: 600; font-size: .92rem; margin: 3px 0 14px; }
 .founder p { color: var(--muted); font-size: .96rem; margin-bottom: 14px; }
